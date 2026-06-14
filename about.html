@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>О нас — Химия Чудес</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Химия Чудес главная">
+        <span class="logo__icon"><i class="fas fa-flask"></i></span>
+        <span class="logo__text">Химия <span class="logo__accent">Чудес</span></span>
+      </a>
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Главная</a></li>
+          <li><a href="about.html" class="nav__link active">О нас</a></li>
+          <li><a href="page.html" class="nav__link">Наборы</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="tel:+79388995559" class="header__phone"><i class="fas fa-phone-alt"></i> <span class="header__phone-number">+7 938 899 55 59</span></a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему"><i class="fas fa-moon"></i></button>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Заглавный блок -->
+    <section class="about-hero parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1581093458791-9d5cd4b4c1b0?w=1200&q=80');">
+      <div class="about-hero__overlay"></div>
+      <div class="container about-hero__content">
+        <h1 class="section__title">О компании «Химия Чудес»</h1>
+        <p>Мы верим, что наука — это самое захватывающее приключение. С 2018 года создаём наборы, которые стирают грань между лабораторией и сказкой.</p>
+      </div>
+    </section>
+
+    <!-- Философия -->
+    <section class="philosophy section" id="philosophy">
+      <div class="container philosophy__grid">
+        <div class="philosophy__text">
+          <h2>Наша философия</h2>
+          <p>Каждый ребёнок — прирождённый исследователь. Мы даём инструменты, чтобы превратить любопытство в знания, а обычный вечер — в открытие. Наши наборы разработаны совместно с педагогами и учёными, чтобы вдохновлять и обучать через игру.</p>
+          <p>Безопасность, экологичность и магия науки — три столпа, на которых стоит «Химия Чудес».</p>
+        </div>
+        <div class="philosophy__atom" aria-hidden="true">
+          <div class="atom">
+            <div class="nucleus"></div>
+            <div class="orbit orbit1"><div class="electron"></div></div>
+            <div class="orbit orbit2"><div class="electron"></div></div>
+            <div class="orbit orbit3"><div class="electron"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Команда -->
+    <section class="team section" id="team">
+      <div class="container">
+        <h2 class="section__title">Наша команда</h2>
+        <div class="team__grid">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Дмитрий">
+            <h3>Дмитрий</h3>
+            <p>Химик-разработчик</p>
+          </div>
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face" alt="Елена">
+            <h3>Елена</h3>
+            <p>Педагог-методист</p>
+          </div>
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Алексей">
+            <h3>Алексей</h3>
+            <p>Инженер-изобретатель</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Безопасность -->
+    <section class="safety section" id="safety">
+      <div class="container">
+        <h2 class="section__title">Почему наши наборы безопасны</h2>
+        <ul class="safety__list">
+          <li><i class="fas fa-check-circle"></i> Гипоаллергенные реактивы</li>
+          <li><i class="fas fa-check-circle"></i> Сертифицированные материалы</li>
+          <li><i class="fas fa-check-circle"></i> Подробные видео-инструкции</li>
+          <li><i class="fas fa-check-circle"></i> Защитные перчатки и очки в комплекте</li>
+          <li><i class="fas fa-check-circle"></i> Контроль качества на каждом этапе</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__col">
+        <a href="index.html" class="logo logo--footer">
+          <span class="logo__icon"><i class="fas fa-flask"></i></span>
+          <span class="logo__text">Химия <span class="logo__accent">Чудес</span></span>
+        </a>
+        <p class="footer__copy">© 2025 Химия Чудес. Наука становится волшебством.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Связаться</h4>
+        <a href="tel:+79388995559" class="footer__phone"><i class="fas fa-phone-alt"></i> +7 938 899 55 59</a>
+        <div class="footer__socials">
+          <a href="#"><i class="fab fa-vk"></i></a>
+          <a href="#"><i class="fab fa-telegram-plane"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <button class="theme-toggle theme-toggle--footer" id="theme-toggle-footer" aria-label="Переключить тему">
+          <i class="fas fa-moon"></i> <span>Тема</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const body = document.body;
+      function setTheme(theme) {
+        body.classList.toggle('dark-theme', theme === 'dark');
+        localStorage.setItem('theme', theme);
+        const icons = document.querySelectorAll('.theme-toggle i, .theme-toggle--footer i');
+        icons.forEach(i => i.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon');
+      }
+      const saved = localStorage.getItem('theme') || 'light';
+      setTheme(saved);
+      document.querySelectorAll('#theme-toggle, #theme-toggle-footer').forEach(b => b.addEventListener('click', () => {
+        setTheme(body.classList.contains('dark-theme') ? 'light' : 'dark');
+      }));
+
+      const burger = document.getElementById('burger');
+      const nav = document.getElementById('nav');
+      burger?.addEventListener('click', () => {
+        nav.classList.toggle('nav--open');
+        burger.classList.toggle('active');
+      });
+      document.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', () => {
+        nav.classList.remove('nav--open');
+        burger.classList.remove('active');
+      }));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.2 });
+      document.querySelectorAll('.section').forEach(s => observer.observe(s));
+    })();
+  </script>
+</body>
+</html>

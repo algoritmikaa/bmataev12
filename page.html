@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Каталог наборов — Химия Чудес</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Химия Чудес главная">
+        <span class="logo__icon"><i class="fas fa-flask"></i></span>
+        <span class="logo__text">Химия <span class="logo__accent">Чудес</span></span>
+      </a>
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Главная</a></li>
+          <li><a href="about.html" class="nav__link">О нас</a></li>
+          <li><a href="page.html" class="nav__link active">Наборы</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="tel:+79388995559" class="header__phone"><i class="fas fa-phone-alt"></i> <span class="header__phone-number">+7 938 899 55 59</span></a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему"><i class="fas fa-moon"></i></button>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog section" id="catalog">
+      <div class="container">
+        <h1 class="section__title">Наборы для экспериментов</h1>
+        <!-- Фильтры -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">Все</button>
+          <button class="filter-btn" data-filter="chemistry">Химия</button>
+          <button class="filter-btn" data-filter="physics">Физика</button>
+          <button class="filter-btn" data-filter="creative">Творчество</button>
+          <button class="filter-btn" data-filter="biology">Микробиология</button>
+        </div>
+
+        <!-- Сетка продуктов -->
+        <div class="products-grid" id="products-grid">
+          <!-- Карточки генерируются JS -->
+        </div>
+
+        <!-- Баннер с телефоном -->
+        <div class="cta-banner">
+          <p>Не знаете, что выбрать?</p>
+          <a href="tel:+79388995559" class="btn btn--primary"><i class="fas fa-phone-alt"></i> +7 938 899 55 59</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__col">
+        <a href="index.html" class="logo logo--footer"><span class="logo__icon"><i class="fas fa-flask"></i></span><span class="logo__text">Химия <span class="logo__accent">Чудес</span></span></a>
+        <p class="footer__copy">© 2025 Химия Чудес.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Связаться</h4>
+        <a href="tel:+79388995559" class="footer__phone"><i class="fas fa-phone-alt"></i> +7 938 899 55 59</a>
+        <div class="footer__socials">
+          <a href="#"><i class="fab fa-vk"></i></a><a href="#"><i class="fab fa-telegram-plane"></i></a><a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <button class="theme-toggle theme-toggle--footer" id="theme-toggle-footer" aria-label="Переключить тему"><i class="fas fa-moon"></i> <span>Тема</span></button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const body = document.body;
+      function setTheme(t) {
+        body.classList.toggle('dark-theme', t === 'dark');
+        localStorage.setItem('theme', t);
+        document.querySelectorAll('.theme-toggle i, .theme-toggle--footer i').forEach(i => i.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon');
+      }
+      setTheme(localStorage.getItem('theme') || 'light');
+      document.querySelectorAll('#theme-toggle, #theme-toggle-footer').forEach(b => b.addEventListener('click', () => setTheme(body.classList.contains('dark-theme') ? 'light' : 'dark')));
+
+      const burger = document.getElementById('burger');
+      const nav = document.getElementById('nav');
+      burger?.addEventListener('click', () => { nav.classList.toggle('nav--open'); burger.classList.toggle('active'); });
+      document.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', () => { nav.classList.remove('nav--open'); burger.classList.remove('active'); }));
+
+      // Данные продуктов (обновлены: добавлены 2 новых набора)
+      const productsData = [
+        { name: 'Юный химик: Магия превращений', price: '2 490 ₽', category: 'chemistry', img: 'https://ir.ozone.ru/s3/multimedia-g/c1000/6102044968.jpg', desc: 'Набор для красочных химических реакций.', inside: 'Реактивы, пробирки, перчатки, инструкция.' },
+        { name: 'Кристаллы и минералы', price: '1 890 ₽', category: 'chemistry', img: 'https://maxim-demidov.ru/storage/0_hkzusxkainrheocxe3ic3ggfggsi39cljsyf1gni_17e164cb.jpg', desc: 'Вырасти свой изумруд.', inside: 'Соль, затравка, контейнер, лупа.' },
+        { name: 'Тайны электричества', price: '2 190 ₽', category: 'physics', img: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=300&fit=crop', desc: 'Лимонная батарейка.', inside: 'Электроды, провода, светодиоды, лимон не включён.' },
+        { name: 'Лаборатория слаймов', price: '1 590 ₽', category: 'creative', img: 'https://catalog-cdn.detmir.st/media/oP8f8c83w7GGH9qbuvFfJkMNMQCCsQ4MHticjP-cjZg=.jpeg', desc: 'Неоновая вселенная.', inside: 'Клей, активатор, красители, блёстки.' },
+        { name: 'Микромир: Набор юного биолога', price: '2 990 ₽', category: 'biology', img: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&h=300&fit=crop', desc: 'Изучи мир под микроскопом.', inside: 'Микроскоп, слайды, инструменты, красители.' },
+        { name: 'Космические эксперименты', price: '3 490 ₽', category: 'physics', img: 'https://s0.rbk.ru/v6_top_pics/ampresize/media/img/9/91/347129056450919.jpeg', desc: 'Реактивный двигатель.', inside: 'Топливная смесь, корпус ракеты, стартовая площадка.' },
+        // Новые наборы
+        { name: 'Полимерные черви: Химия цвета', price: '2 790 ₽', category: 'creative', img: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=400&h=300&fit=crop', desc: 'Создай разноцветных полимерных червячков.', inside: 'Полимерные гранулы, активатор, красители, формы.' },
+        { name: 'Вулкан на столе', price: '1 950 ₽', category: 'chemistry', img: 'https://www.igrotime.ru/upload/t/800-700im/large_foto/vulkan-na-stole.jpg', desc: 'Устрой извержение прямо дома!', inside: 'Сода, лимонная кислота, краситель, модель вулкана, поддон.' }
+      ];
+
+      const grid = document.getElementById('products-grid');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+
+      function renderProducts(filter = 'all') {
+        if (!grid) return;
+        grid.innerHTML = '';
+        const filtered = filter === 'all' ? productsData : productsData.filter(p => p.category === filter);
+        filtered.forEach((p, index) => {
+          const card = document.createElement('div');
+          card.className = 'product-card';
+          card.style.animationDelay = `${index * 0.1}s`;
+          card.innerHTML = `
+            <div class="product-card__inner">
+              <div class="product-card__front">
+                <img src="${p.img}" alt="${p.name}" loading="lazy">
+                <h3>${p.name}</h3>
+                <span class="product-card__price">${p.price}</span>
+                <span class="btn btn--outline">Состав</span>
+              </div>
+              <div class="product-card__back">
+                <p><strong>В наборе:</strong> ${p.inside}</p>
+                <a href="tel:+79388995559" class="btn btn--primary">Заказать</a>
+              </div>
+            </div>`;
+          grid.appendChild(card);
+        });
+      }
+
+      renderProducts();
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderProducts(btn.dataset.filter);
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.2 });
+      document.querySelectorAll('.section').forEach(s => observer.observe(s));
+    })();
+  </script>
+</body>
+</html>
